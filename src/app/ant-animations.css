@@ -1,0 +1,100 @@
+@keyframes ant-march {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+.ant-march {
+  animation: ant-march 0.8s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center bottom;
+}
+
+@keyframes queen-crown-glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 2px rgb(251 191 36 / 0.35))
+      drop-shadow(0 0 4px rgb(245 158 11 / 0.2));
+    opacity: 0.85;
+  }
+  50% {
+    filter: drop-shadow(0 0 6px rgb(251 191 36 / 0.85))
+      drop-shadow(0 0 12px rgb(245 158 11 / 0.55));
+    opacity: 1;
+  }
+}
+
+.queen-crown-glow {
+  animation: queen-crown-glow 2.4s ease-in-out infinite;
+}
+
+@property --card-glow-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes card-border-glow {
+  to {
+    --card-glow-angle: 360deg;
+  }
+}
+
+[data-slot="card"] {
+  position: relative;
+}
+
+[data-slot="card"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: conic-gradient(
+    from var(--card-glow-angle),
+    transparent 0%,
+    transparent 18%,
+    rgb(251 191 36 / 0.1) 32%,
+    rgb(253 224 71 / 0.75) 50%,
+    rgb(251 191 36 / 0.1) 68%,
+    transparent 82%,
+    transparent 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  z-index: 1;
+}
+
+[data-slot="card"]:hover::after {
+  opacity: 1;
+  animation: card-border-glow 2.8s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ant-march,
+  .queen-crown-glow {
+    animation: none;
+  }
+
+  [data-slot="card"]::after {
+    transition: none;
+  }
+
+  [data-slot="card"]:hover::after {
+    animation: none;
+    opacity: 0;
+  }
+}

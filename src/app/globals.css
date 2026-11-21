@@ -1,0 +1,258 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "./ant-animations.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --background: oklch(0 0 0);
+  --foreground: oklch(0.38 0.09 55);
+  --card: oklch(0.995 0.015 95);
+  --card-foreground: oklch(0.38 0.09 55);
+  --popover: oklch(0.995 0.015 95);
+  --popover-foreground: oklch(0.38 0.09 55);
+  --primary: oklch(0.769 0.188 70.08);
+  --primary-foreground: oklch(0.216 0.045 55);
+  --secondary: oklch(0.94 0.05 85);
+  --secondary-foreground: oklch(0.42 0.09 55);
+  --muted: oklch(0.95 0.03 90);
+  --muted-foreground: oklch(0.52 0.09 70);
+  --accent: oklch(0.93 0.06 85);
+  --accent-foreground: oklch(0.4 0.09 55);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.88 0.06 80);
+  --input: oklch(0.88 0.06 80);
+  --ring: oklch(0.769 0.188 70.08);
+  --chart-1: oklch(0.85 0.16 85);
+  --chart-2: oklch(0.77 0.17 75);
+  --chart-3: oklch(0.66 0.14 65);
+  --chart-4: oklch(0.55 0.12 55);
+  --chart-5: oklch(0.45 0.1 50);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.98 0.02 92);
+  --sidebar-foreground: oklch(0.38 0.09 55);
+  --sidebar-primary: oklch(0.769 0.188 70.08);
+  --sidebar-primary-foreground: oklch(0.216 0.045 55);
+  --sidebar-accent: oklch(0.94 0.05 85);
+  --sidebar-accent-foreground: oklch(0.4 0.09 55);
+  --sidebar-border: oklch(0.88 0.06 80);
+  --sidebar-ring: oklch(0.769 0.188 70.08);
+}
+
+.dark {
+  color-scheme: dark;
+  --background: oklch(0 0 0);
+  --foreground: oklch(0.92 0.1 90);
+  --card: oklch(0.29 0.045 52);
+  --card-foreground: oklch(0.92 0.1 90);
+  --popover: oklch(0.29 0.045 52);
+  --popover-foreground: oklch(0.92 0.1 90);
+  --primary: oklch(0.769 0.188 70.08);
+  --primary-foreground: oklch(0.216 0.045 55);
+  --secondary: oklch(0.34 0.05 55);
+  --secondary-foreground: oklch(0.9 0.09 90);
+  --muted: oklch(0.32 0.04 52);
+  --muted-foreground: oklch(0.78 0.09 85);
+  --accent: oklch(0.36 0.06 60);
+  --accent-foreground: oklch(0.93 0.09 92);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(0.86 0.08 85 / 18%);
+  --input: oklch(0.86 0.08 85 / 22%);
+  --ring: oklch(0.769 0.188 70.08);
+  --chart-1: oklch(0.86 0.15 90);
+  --chart-2: oklch(0.79 0.16 80);
+  --chart-3: oklch(0.7 0.14 70);
+  --chart-4: oklch(0.58 0.11 60);
+  --chart-5: oklch(0.48 0.09 55);
+  --sidebar: oklch(0.27 0.045 52);
+  --sidebar-foreground: oklch(0.92 0.1 90);
+  --sidebar-primary: oklch(0.769 0.188 70.08);
+  --sidebar-primary-foreground: oklch(0.216 0.045 55);
+  --sidebar-accent: oklch(0.34 0.05 55);
+  --sidebar-accent-foreground: oklch(0.92 0.1 90);
+  --sidebar-border: oklch(0.86 0.08 85 / 18%);
+  --sidebar-ring: oklch(0.769 0.188 70.08);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+@layer utilities {
+  .dark .bg-card,
+  .dark [data-slot="card"] {
+    background-image: linear-gradient(
+      180deg,
+      oklch(0.35 0.055 58) 0%,
+      oklch(0.27 0.04 50) 100%
+    );
+  }
+}
+
+/* Animated queen ant in the hero */
+
+@keyframes queen-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes queen-leg {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(7deg);
+  }
+}
+
+@keyframes queen-antenna {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-9deg);
+  }
+}
+
+@keyframes queen-crown {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+    filter: drop-shadow(0 0 0 rgb(253 230 138 / 0));
+  }
+  50% {
+    transform: translateY(-1.5px) rotate(2deg);
+    filter: drop-shadow(0 0 5px rgb(253 230 138 / 0.8));
+  }
+}
+
+@keyframes queen-glow {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(0.94);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes queen-shadow {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scaleX(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scaleX(0.86);
+  }
+}
+
+.queen-bob {
+  animation: queen-bob 2.8s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.queen-leg {
+  animation: queen-leg 0.9s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: top center;
+}
+
+.queen-antenna {
+  animation: queen-antenna 2.2s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: bottom center;
+}
+
+.queen-crown {
+  animation: queen-crown 2.8s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.queen-glow {
+  animation: queen-glow 3.4s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.queen-shadow {
+  animation: queen-shadow 2.8s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .queen-bob,
+  .queen-leg,
+  .queen-antenna,
+  .queen-crown,
+  .queen-glow,
+  .queen-shadow {
+    animation: none;
+  }
+}
